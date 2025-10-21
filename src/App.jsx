@@ -101,7 +101,7 @@ function App() {
   }, [])
   return (
     <div
-      className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
+      className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat px-4 sm:px-0"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')`,
         backgroundSize: 'cover',
@@ -109,10 +109,10 @@ function App() {
         backgroundRepeat: 'no-repeat'
       }}>
 
-      <div className='w-full'>
-        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+      <div className='w-full max-w-sm sm:max-w-none'>
+        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-4 sm:p-5 backdrop-blur-sm bg-white/30">
           {error && (
-            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm sm:text-base">
               Error loading currency data: {error}
             </div>
           )}
@@ -131,10 +131,10 @@ function App() {
                   onAmountChange={(newAmount) => setAmount(newAmount)}
                 />
                 </div>
-                <div className="relative w-full h-0.5">
+                <div className="relative w-full h-0.5 sm:h-0.5">
                   <button
                   type="button"
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-black border-white rounded-md text-white px-3 py-1 hover:bg-gray-800 transition-colors z-10"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 bg-black border-white rounded-md text-white px-3 py-1 sm:px-3 sm:py-1 text-sm sm:text-base hover:bg-gray-800 transition-colors z-10"
                   onClick={swap}
                 >
                     Swap
@@ -153,8 +153,7 @@ function App() {
                 </div>
                 <button 
                 type="submit"
-                className="w-full bg-black hover:bg-gray-900
-                 text-white px-4 py-3 rounded-lg disabled:bg-gray-400"
+                className="w-full bg-black hover:bg-gray-900 text-white px-4 py-3 sm:px-4 sm:py-3 rounded-lg disabled:bg-gray-400 text-sm sm:text-base"
                 disabled={loading || error || !(currencyInfo[to.toLowerCase()] || currencyInfo[to.toUpperCase()])}>
                   {loading ? 'Loading...' : error ? 'API Error' : `Convert ${from.toUpperCase()} to ${to.toUpperCase()}`}
                 </button>
